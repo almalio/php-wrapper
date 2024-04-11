@@ -1,0 +1,7 @@
+{
+    "name": "almalio/api-php",
+    "description": "Almalio PHP Connector",
+    "require": {
+        "ext-curl": "*"
+    }
+}
