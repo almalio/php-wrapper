@@ -53,6 +53,7 @@ Add contact to the Almalio system.
     - `city` - City (`required|string|between:1,255|regex:/^[\p{L} ]+$/u`)
     - `postcode` - Postcode (`required|string|between:1,255`)
     - `country_code` - Country code (`required|string|size:2`) - ISO 3166-1 alpha-2, e.g. SK
+    - `testing` - Testing mode (`optional|boolean`)
 
 ### Order delivery type ENUM
 - `1` - Delivery to the address
