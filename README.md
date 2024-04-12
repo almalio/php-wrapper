@@ -75,7 +75,7 @@ Add contact to the Almalio system.
 **Status code:** 200
 ```json
 {
-  "message": "Contact imported successfully",
+  "message": "Contact added to queue successfully",
   "success": true
 }
 ```
