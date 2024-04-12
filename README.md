@@ -55,7 +55,57 @@ Add contact to the Almalio system.
     - `country_code` - Country code (`required|string|size:2`) - ISO 3166-1 alpha-2, e.g. SK
     - `testing` - Testing mode (`optional|boolean`)
 
-### Order delivery type ENUM
+#### Order delivery type ENUM
 - `1` - Delivery to the address
 - `2` - Personal pickup
 
+### Responses
+#### Validation error
+**Status code:** 400
+```json
+{
+  "message": "Validation failed",
+  "error": [
+    "The street field format is invalid.",
+    "The postcode field is required."
+  ]
+}
+```
+#### Imported
+**Status code:** 200
+```json
+{
+  "message": "Contact imported successfully",
+  "success": true
+}
+```
+#### Duplicate
+**Status code:** 200
+```json
+{
+  "message": "Contact already imported",
+  "success": false
+}
+```
+#### Test successful
+**Status code:** 200
+```json
+{
+  "message": "Test successful",
+  "success": true,
+  "data": {
+    "order_number": "12345",
+    "order_total": 123.45,
+    "order_currency": "EUR",
+    "order_delivery_type": 1,
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "mail@example.org",
+    "phone": "+421905000000",
+    "street": "Main Street 123",
+    "city": "New York",
+    "postcode": "12345",
+    "country_code": "SK"
+  }
+}
+```
