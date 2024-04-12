@@ -16,12 +16,12 @@ class Almalio
         return $this->post($siteKey, 'import/contact', $data);
     }
 
-    private function post(string $siteKey, string $request, array $data, array $query = [])
+    private function post(string $siteKey, string $request, array $data)
     {
-        return $this->send($siteKey, $request, $data, 'post', $query);
+        return $this->send($siteKey, $request, $data, 'post');
     }
 
-    private function send(string $siteKey, string $request, $data, $method, array $query)
+    private function send(string $siteKey, string $request, array $data, string $method)
     {
 
         $urlRequest = $this->serverUrl . '/' . $request;
@@ -29,16 +29,11 @@ class Almalio
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlRequest);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        if (!is_null($method)) {
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
-        }
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
 
         $json_options = 0 | (PHP_VERSION_ID >= 70300 ? JSON_THROW_ON_ERROR : 0);
 
-        if (is_array($data)) {
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data, $json_options));
-        }
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data, $json_options));
 
         curl_setopt(
             $ch,

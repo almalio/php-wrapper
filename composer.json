@@ -1,7 +1,21 @@
 {
     "name": "almalio/api-php",
-    "description": "Almalio PHP Connector",
+    "description": "Almalio.com API Wrapper",
+    "license": "GPL-3.0-only",
+    "type": "library",
+    "keywords": ["almalio", "api", "wrapper"],
     "require": {
-        "ext-curl": "*"
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    },
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse --level 5 src/"
     }
 }
