@@ -2,7 +2,7 @@
 
 # Instalation
 ```bash
-composer require almalio/php-wrapper
+composer require almalio/api-php
 ```
 
 # Usage
